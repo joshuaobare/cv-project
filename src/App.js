@@ -1,4 +1,7 @@
 import React , {Component} from 'react';
+import General from './components/GeneralInfo';
+import Education from './components/Education';
+import Experience from './components/Experience';
 
 class App extends Component {
   constructor() {
@@ -7,10 +10,13 @@ class App extends Component {
 
 
 
-  render(){
+  render() {
     return (
       <div className="App">
-        <h1> Title</h1>
+        <h1>CV PROJECT</h1>
+        <General />
+        <Education />
+        <Experience />
       </div>
     );
   }
