@@ -2,22 +2,23 @@ import React , {Component} from 'react';
 
 
 class Education extends Component {
-    constructor() {
-        super()
-    }
+    
 
     render(){
+
+        const {schoolName , onChange , onSubmitName, degreeName ,schoolStart,schoolEnd} = this.props
+        
         return (
             <div>
-                <form>
+                <form onSubmit={onSubmitName}>
                     <label htmlFor="school">School Name: </label>
-                    <input type="text" id="school"/>
+                    <input onChange={onChange} value={schoolName} type="text" id="school"/>
                     <label htmlFor="degree">Degree: </label>
-                    <input type="text" id="degree"/>
-                    <label htmlFor="start-date">Start date: </label>
-                    <input type="date" id="start-date"/>
-                    <label htmlFor="end-date">End date: </label>
-                    <input type="date" id="end-date"/>
+                    <input onChange={onChange} value={degreeName} type="text" id="degree"/>
+                    <label htmlFor="school-start-date">Start date: </label>
+                    <input onChange={onChange} value={schoolStart} type="date" id="school-start-date"/>
+                    <label htmlFor="school-end-date">End date: </label>
+                    <input onChange={onChange} value={schoolEnd} type="date" id="school-end-date"/>
                     <button type="submit">
                         Submit
                     </button>

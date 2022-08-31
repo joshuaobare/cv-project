@@ -2,18 +2,26 @@ import React , {Component} from 'react';
 
 
 class Overview extends Component {
-    constructor(props) {
-        super(props)
-    }
-
+    
     render(){
-        
+        const {names,email,number,school,degree,schoolStart,schoolEnd, company,position,roles,workStart,workEnd} = this.props
+
+
         return (
             <div>
                 <h1>Details</h1>
-                <p>Name: {this.props.names}</p>
-                <p>Email: {this.props.email}</p>
-                <p>Phone Number: {this.props.number}</p>
+                <p>Name: {names}</p>
+                <p>Email: {email}</p>
+                <p>Phone Number: {number}</p>
+                <p>School: {school}</p>
+                <p>Degree: {degree}</p>
+                <p>Start Date: {schoolStart}</p>
+                <p>End Date: {schoolEnd}</p>
+                <p>Company: {company}</p>
+                <p>Position: {position}</p>
+                <p>Roles: {roles}</p>
+                <p>Start Date: {workStart}</p>
+                <p>End Date: {workEnd}</p>
                 
             </div>
         )
