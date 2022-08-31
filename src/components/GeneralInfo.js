@@ -1,17 +1,17 @@
 import React , {Component} from 'react';
-
+//import App from '../App';
 
 class General extends Component {
-    constructor() {
-        super()
-    }
-
+    
     render(){
+
+        const {value , onChange , onSubmitName} = this.props
+        
         return (
             <div>
-                <form>
+                <form onSubmit={onSubmitName} >
                     <label htmlFor="name">Name: </label>
-                    <input type="text" id="name"/>
+                    <input onChange={onChange} value={value} type="text" id="name"/>
                     <label htmlFor="email">Email: </label>
                     <input type="email" id="email"/>
                     <label htmlFor="number">Phone number: </label>
