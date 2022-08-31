@@ -10,7 +10,10 @@ class Overview extends Component {
         
         return (
             <div>
-                <h1>Name: {this.props.names}</h1>
+                <h1>Details</h1>
+                <p>Name: {this.props.names}</p>
+                <p>Email: {this.props.email}</p>
+                <p>Phone Number: {this.props.number}</p>
                 
             </div>
         )

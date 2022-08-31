@@ -9,9 +9,10 @@ class App extends Component {
     super()
 
     this.state = {
-      name:{text: ""}
-      
-  }
+      name:{text: ""},
+      email:{text: ""},
+      number : {text: ""}     
+    }
 
   this.handleChange = this.handleChange.bind(this)
   this.onSubmitName = this.onSubmitName.bind(this)
@@ -20,7 +21,13 @@ class App extends Component {
   handleChange = (e) => {
     this.setState({
       name: {
-        text: e.target.value
+        text: document.querySelector("#name").value
+      },
+      email: {
+        text: document.querySelector("#email").value
+      },
+      number: {
+        text: document.querySelector("#number").value
       }
     })
   }
@@ -28,9 +35,9 @@ class App extends Component {
   onSubmitName = (e) => {
     e.preventDefault()
     this.setState({
-      name : {
-        text: ""
-      }
+      name:{text: ""},
+      email:{text: ""},
+      number : {text: ""} 
     })
   }
 
@@ -38,15 +45,15 @@ class App extends Component {
 
   render() {
 
-    //const {name} = this.state
+    const {name,email,number} = this.state
 
     return (
       <div className="App">
         <h1>CV PROJECT</h1>
-        <General onChange={this.handleChange} value={this.state.name.text} onSubmitName={this.onSubmitName}  />
+        <General onChange={this.handleChange} nameValue={name.text} emailValue={email.text} numberValue={number.text} onSubmitName={this.onSubmitName}  />
         {/*<Education />
         <Experience />*/ }
-        <Overview names = {this.state.name.text}/>
+        <Overview names = {this.state.name.text} email={this.state.email.text} number={this.state.number.text}/>
       </div>
     );
   }

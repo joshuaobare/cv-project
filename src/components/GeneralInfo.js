@@ -5,17 +5,17 @@ class General extends Component {
     
     render(){
 
-        const {value , onChange , onSubmitName} = this.props
+        const {nameValue , onChange , onSubmitName, numberValue ,emailValue} = this.props
         
         return (
             <div>
                 <form onSubmit={onSubmitName} >
                     <label htmlFor="name">Name: </label>
-                    <input onChange={onChange} value={value} type="text" id="name"/>
+                    <input onChange={onChange} value={nameValue} type="text" id="name"/>
                     <label htmlFor="email">Email: </label>
-                    <input type="email" id="email"/>
+                    <input onChange={onChange} value={emailValue} type="email" id="email"/>
                     <label htmlFor="number">Phone number: </label>
-                    <input type="text" id="number"/>
+                    <input onChange={onChange} value={numberValue} type="text" id="number"/>
                     <button type="submit">
                         Submit
                     </button>
