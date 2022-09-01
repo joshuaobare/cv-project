@@ -13,10 +13,12 @@ class Overview extends Component {
                 <p>Name: {names}</p>
                 <p>Email: {email}</p>
                 <p>Phone Number: {number}</p>
+                <h2>Education</h2>
                 <p>School: {school}</p>
                 <p>Degree: {degree}</p>
                 <p>Start Date: {schoolStart}</p>
                 <p>End Date: {schoolEnd}</p>
+                <h2>Work Experience</h2>
                 <p>Company: {company}</p>
                 <p>Position: {position}</p>
                 <p>Roles: {roles}</p>

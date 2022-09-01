@@ -3,6 +3,7 @@ import General from './components/GeneralInfo';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Overview from './components/Overview';
+import './index.css';
 
 class App extends Component {
   constructor() {
@@ -73,7 +74,7 @@ class App extends Component {
 
   onSubmitName = (e) => {
     e.preventDefault()
-    this.setState({
+    /*this.setState({
       name:{text: ""},
       email:{text: ""},
       number : {text: ""},     
@@ -86,7 +87,7 @@ class App extends Component {
       roles:{text: ""},
       workStart:{text: ""},
       workEnd : {text: ""}
-    })
+    })*/
   }
 
 

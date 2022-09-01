@@ -1,0 +1,21 @@
+form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+button {
+    align-self: center;
+}
+
+.component-heading {
+    text-align: center;
+}

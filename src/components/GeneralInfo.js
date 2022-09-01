@@ -9,16 +9,26 @@ class General extends Component {
         
         return (
             <div>
+                <h2 className='component-heading'>General Info</h2>
                 <form onSubmit={onSubmitName} >
-                    <label htmlFor="name">Name: </label>
-                    <input onChange={onChange} value={nameValue} type="text" id="name"/>
-                    <label htmlFor="email">Email: </label>
-                    <input onChange={onChange} value={emailValue} type="email" id="email"/>
-                    <label htmlFor="number">Phone number: </label>
-                    <input onChange={onChange} value={numberValue} type="text" id="number"/>
-                    <button type="submit">
-                        Submit
-                    </button>
+
+                    <div className="form-item">
+                        <label htmlFor="name">Name: </label>
+                        <input onChange={onChange} value={nameValue} type="text" id="name"/>
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="email">Email: </label>
+                        <input onChange={onChange} value={emailValue} type="email" id="email"/>
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="number">Phone number: </label>
+                        <input onChange={onChange} value={numberValue} type="text" id="number"/>    
+                    </div>
+                    <div className="form-item">
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div>     
                 </form>
             </div>
         )
