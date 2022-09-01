@@ -22,12 +22,12 @@ class Education extends Component {
                         <input onChange={onChange} value={degreeName} type="text" id="degree"/>
                     </div>
                     <div className="form-item">
-                        <label htmlFor="school-start-date">Start date: </label>
-                        <input onChange={onChange} value={schoolStart} type="date" id="school-start-date"/>
+                        <label htmlFor="schoolStart">Start date: </label>
+                        <input onChange={onChange} value={schoolStart} type="date" id="schoolStart"/>
                     </div>
                     <div className="form-item">
-                        <label htmlFor="school-end-date">End date: </label>
-                        <input onChange={onChange} value={schoolEnd} type="date" id="school-end-date"/>
+                        <label htmlFor="schoolEnd">End date: </label>
+                        <input onChange={onChange} value={schoolEnd} type="date" id="schoolEnd"/>
                     </div>
                     <div className="form-item">
                         <button type="submit">

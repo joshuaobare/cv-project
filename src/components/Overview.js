@@ -10,20 +10,50 @@ class Overview extends Component {
         return (
             <div>
                 <h1>Details</h1>
-                <p>Name: {names}</p>
-                <p>Email: {email}</p>
-                <p>Phone Number: {number}</p>
+
+                {names.map((name)=> {
+                    return <p>Name: {name.text}</p>
+                })}
+
+                {email.map((emails)=> {
+                    return <p>Email: {emails.text}</p>
+                })}
+                {number.map((numbers)=> {
+                    return<p>Phone Number: {numbers.text}</p>
+                })}
+
                 <h2>Education</h2>
-                <p>School: {school}</p>
-                <p>Degree: {degree}</p>
-                <p>Start Date: {schoolStart}</p>
-                <p>End Date: {schoolEnd}</p>
+
+                {school.map((schools)=> {
+                    return <p>School: {schools.text}</p>
+                })}
+                {degree.map((degrees)=> {
+                    return <p>Degree: {degrees.text}</p>
+                })}
+                {schoolStart.map((schoolStarts)=> {
+                    return <p>Start Date: {schoolStarts.text}</p>
+                })}
+                {schoolEnd.map((schoolEnds)=> {
+                    return <p>End Date: {schoolEnds.text}</p>
+                })}
+
                 <h2>Work Experience</h2>
-                <p>Company: {company}</p>
-                <p>Position: {position}</p>
-                <p>Roles: {roles}</p>
-                <p>Start Date: {workStart}</p>
-                <p>End Date: {workEnd}</p>
+                {company.map((companies)=> {
+                    return <p>Company: {companies.text}</p>
+                })}
+                {position.map((positions)=> {
+                    return <p>Position: {positions.text}</p>
+                })}
+                {roles.map((role)=> {
+                    return <p>Roles: {role.text}</p>
+                })}
+                {workStart.map((workStarts)=> {
+                    return <p>Start Date: {workStarts.text}</p>
+                })}
+                {workEnd.map((workEnds)=> {
+                    return <p>End Date: {workEnds.text}</p>
+                })}
+                 
                 
             </div>
         )

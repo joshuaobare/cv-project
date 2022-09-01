@@ -6,22 +6,34 @@ import Overview from './components/Overview';
 import './index.css';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       name:{text: ""},
+      names : [],
       email:{text: ""},
-      number : {text: ""},     
+      emails : [],
+      number : {text: ""}, 
+      numbers : [],    
       school:{text: ""},
+      schools : [],
       degree:{text: ""},
+      degrees : [],
       schoolStart:{text: ""},
+      schoolStarts : [],
       schoolEnd : {text: ""},
-      company : {text: ""},     
+      schoolEnds:[],
+      company : {text: ""},
+      companies: [],     
       position:{text: ""},
+      positions:[],
       roles:{text: ""},
+      role:[],
       workStart:{text: ""},
-      workEnd : {text: ""}
+      workStarts:[],
+      workEnd : {text: ""},
+      workEnds:[],
     
     
     }
@@ -48,10 +60,10 @@ class App extends Component {
         text: document.querySelector("#degree").value
       },
       schoolStart: {
-        text: document.querySelector("#school-start-date").value
+        text: document.querySelector("#schoolStart").value
       },
       schoolEnd: {
-      text: document.querySelector("#school-end-date").value 
+      text: document.querySelector("#schoolEnd").value 
       },
       company: {
         text: document.querySelector("#company").value
@@ -63,10 +75,10 @@ class App extends Component {
         text: document.querySelector("#roles").value
       },
       workStart: {
-        text: document.querySelector("#work-start-date").value
+        text: document.querySelector("#workStart").value
       },
       workEnd: {
-      text: document.querySelector("#work-end-date").value 
+      text: document.querySelector("#workEnd").value 
       }
       
     })
@@ -74,8 +86,24 @@ class App extends Component {
 
   onSubmitName = (e) => {
     e.preventDefault()
-    /*this.setState({
-      name:{text: ""},
+    this.setState({
+      names: this.state.names.concat(this.state.name),
+      emails:this.state.emails.concat(this.state.email),
+      numbers:this.state.numbers.concat(this.state.number),
+      schools:this.state.schools.concat(this.state.school),
+      degrees:this.state.degrees.concat(this.state.degree),
+      schoolStarts:this.state.schoolStarts.concat(this.state.schoolStart),
+      schoolEnds:this.state.schoolEnds.concat(this.state.schoolEnd),
+      companies:this.state.companies.concat(this.state.company),
+      positions:this.state.positions.concat(this.state.position),
+      role:this.state.role.concat(this.state.roles),
+      workStarts:this.state.workStarts.concat(this.state.workStart),
+      workEnds:this.state.workEnds.concat(this.state.workEnd),
+
+
+
+
+      /*name:{text: ""},
       email:{text: ""},
       number : {text: ""},     
       school:{text: ""},
@@ -86,15 +114,16 @@ class App extends Component {
       position:{text: ""},
       roles:{text: ""},
       workStart:{text: ""},
-      workEnd : {text: ""}
-    })*/
+      workEnd : {text: ""}*/
+    })
   }
 
 
 
   render() {
 
-    const {name,email,number, degree,school,schoolStart,schoolEnd,company,position,roles,workStart,workEnd } = this.state
+    const {name,names,email,emails,number,numbers, degree, degrees, school,schools,schoolStart,schoolStarts,schoolEnd,schoolEnds,
+    company,companies,position,positions,roles,role,workStart,workStarts,workEnd,workEnds } = this.state
 
     return (
       <div className="App">
@@ -102,8 +131,8 @@ class App extends Component {
         <General onChange={this.handleChange} nameValue={name.text} emailValue={email.text} numberValue={number.text} onSubmitName={this.onSubmitName}  />
         <Education onChange={this.handleChange} schoolName={school.text} degreeName={degree.text} schoolStart={schoolStart.text} schoolEnd={schoolEnd.text} onSubmitName={this.onSubmitName} />
         <Experience onChange={this.handleChange} company={company.text} position={position.text} roles={roles.text} workStart={workStart.text} workEnd={workEnd.text} onSubmitName={this.onSubmitName}/>
-        <Overview names = {name.text} email={email.text} number={number.text} school={school.text} degree={degree.text} schoolStart={schoolStart.text} schoolEnd={schoolEnd.text}
-        company={company.text} position={position.text} roles={roles.text} workStart={workStart.text} workEnd={workEnd.text}/>
+        <Overview names = {names} email={emails} number={numbers} school={schools} degree={degrees} schoolStart={schoolStarts} schoolEnd={schoolEnds}
+        company={companies} position={positions} roles={role} workStart={workStarts} workEnd={workEnds}/>
       </div>
     );
   }

@@ -25,12 +25,12 @@ class Experience extends Component {
                         <input onChange={onChange} value={roles} type="text" id="roles"/>
                     </div>
                     <div className="form-item">
-                        <label htmlFor="work-start-date">Start date: </label>
-                        <input onChange={onChange} value={workStart} type="date" id="work-start-date"/>
+                        <label htmlFor="workStart">Start date: </label>
+                        <input onChange={onChange} value={workStart} type="date" id="workStart"/>
                     </div>
                     <div className="form-item">
-                        <label htmlFor="work-end-date">End date: </label>
-                        <input onChange={onChange} value={workEnd} type="date" id="work-end-date"/>
+                        <label htmlFor="workEnd">End date: </label>
+                        <input onChange={onChange} value={workEnd} type="date" id="workEnd"/>
                     </div>
                     <div className="form-item">
                         <button type="submit">
