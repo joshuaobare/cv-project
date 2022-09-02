@@ -11,11 +11,11 @@ class Overview extends Component {
                 <h1>Details</h1>
 
                 {
-                    info.map((data,i) => {
+                    info.map((data) => {
                         if (data.text === "") {
                             return null
                         }else {
-                          return <p key={data.id}>{data.title}: {data.text}</p>}
+                          return <div className="details" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>}
                         
                     })
                 }
@@ -24,11 +24,11 @@ class Overview extends Component {
                 <h2>Education</h2>
 
                 {
-                    education.map((data,i) => {
+                    education.map((data) => {
                         if(data.text === "") {
                             return null
                         } else {
-                            return <p key={data.id}>{data.title}: {data.text}</p>
+                            return <div className="education" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
                         } 
                     })
                 }
@@ -36,11 +36,11 @@ class Overview extends Component {
                 <h2>Work Experience</h2>
 
                 {
-                    experience.map((data,i) => {
+                    experience.map((data) => {
                         if(data.text === "") {
                             return null
                         } else {
-                            return <p key={data.id}>{data.title}: {data.text}</p>
+                            return <div className="experience" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
                         }                                     
                         
                     })

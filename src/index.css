@@ -19,3 +19,9 @@ button {
 .component-heading {
     text-align: center;
 }
+
+.details,.experience,.education {
+    display: flex;
+    gap: 2px;
+
+}
