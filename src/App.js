@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import General from './components/GeneralInfo';
 import Education from './components/Education';
 import Experience from './components/Experience';
-import Overview from './components/Overview';
+//import Overview from './components/Overview';
 import './index.css';
 import uniqid from "uniqid";
 
@@ -13,51 +13,51 @@ class App extends Component {
     this.state = {
       name:{text: "",
       id:uniqid(),
-    title:"Name"},
+      title:"Name"},
       info : [],
       email:{text: "",
       id:uniqid(),
-    title:"Email"},
+      title:"Email"},
       
       number : {text: "",
       id:uniqid(),
-    title:"Number"}, 
+      title:"Number"}, 
           
       school:{text: "",
       id:uniqid(),
-    title:"School"},
+      title:"School"},
       education : [],
       degree:{text: "",
       id:uniqid(),
-    title:"Degree"},
+      title:"Degree"},
       
       schoolStart:{text: "",
       id:uniqid(),
-    title:"Start Date"},
+      title:"Start Date"},
       
       schoolEnd : {text: "",
       id:uniqid(),
-    title:"End Date"},
+      title:"End Date"},
       
       company : {text: "",
       id:uniqid(),
-    title:"Company"},
+      title:"Company"},
       experience: [],     
       position:{text: "",
       id:uniqid(),
-    title:"Position"},
+      title:"Position"},
       
       roles:{text: "",
       id:uniqid(),
-    title:"Roles"},
+      title:"Roles"},
       
       workStart:{text: "",
       id:uniqid(),
-    title:"Start Date"},
+      title:"Start Date"},
      
       workEnd : {text: "",
       id:uniqid(),
-    title: "End Date"}
+      title: "End Date"}
       
     
     
@@ -134,17 +134,60 @@ class App extends Component {
 
 
   render() {
-    const {name,email,number,degree,school,schoolStart,schoolEnd,
-      company,position,roles,workStart,workEnd , info, experience,education } = this.state
+    const {name,email,number,degree,school,schoolStart,schoolEnd,company,position,roles,workStart,workEnd , info, experience,education } = this.state
 
     return (
       <div className="App">
         <h1>CV PROJECT</h1>
-        <General onChange={this.handleChange} nameValue={name.text} emailValue={email.text} numberValue={number.text} onSubmitName={this.onSubmitName}  />
-        <Education onChange={this.handleChange} schoolName={school.text} degreeName={degree.text} schoolStart={schoolStart.text} schoolEnd={schoolEnd.text} onSubmitName={this.onSubmitName} />
-        <Experience onChange={this.handleChange} company={company.text} position={position.text} roles={roles.text} workStart={workStart.text} workEnd={workEnd.text} onSubmitName={this.onSubmitName}/>
-        <Overview info = {info} experience = {experience} education = {education} />
         
+        <div className='section'>
+          
+          <General onChange={this.handleChange} nameValue={name.text} emailValue={email.text} numberValue={number.text} onSubmitName={this.onSubmitName}/>
+                  {
+                      info.map((data) => {
+                          if (data.text === "") {
+                              return null
+                          }else {
+                            return <div className="details" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>}
+                          
+                      })
+                  }
+
+          <div><button>Edit</button></div>
+        
+        </div>
+
+        <div className='section'>
+          
+          <Education onChange={this.handleChange} schoolName={school.text} degreeName={degree.text} schoolStart={schoolStart.text} schoolEnd={schoolEnd.text} onSubmitName={this.onSubmitName} />
+            {
+                education.map((data) => {
+                    if(data.text === "") {
+                        return null
+                    } else {
+                        return <div className="education" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
+                    } 
+                })
+            }
+             <div><button>Edit</button></div>
+        </div>
+
+        <div className='section'>
+          
+          <Experience onChange={this.handleChange} company={company.text} position={position.text} roles={roles.text} workStart={workStart.text} workEnd={workEnd.text} onSubmitName={this.onSubmitName}/>
+          {
+              experience.map((data) => {
+                  if(data.text === "") {
+                      return null
+                  } else {
+                      return <div className="experience" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
+                  }                                     
+                  
+              })
+          }
+           <div><button>Edit</button></div>
+        </div>
+
       </div>
     );
   }

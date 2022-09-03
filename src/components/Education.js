@@ -29,6 +29,11 @@ class Education extends Component {
                         <label htmlFor="schoolEnd">End date: </label>
                         <input onChange={onChange} value={schoolEnd} type="date" id="schoolEnd"/>
                     </div>
+                    <div className="form-item">
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div> 
                           
                     
                 </form>

@@ -24,6 +24,11 @@ class General extends Component {
                         <label htmlFor="number">Phone number: </label>
                         <input onChange={onChange} value={numberValue} type="text" id="number"/>    
                     </div>
+                    <div className="form-item">
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div> 
                        
                 </form>
             </div>
