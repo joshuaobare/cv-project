@@ -10,7 +10,7 @@ class Experience extends Component {
         return (
             <div>
                 <h2 className='component-heading'>Experience</h2>
-                <form onSubmit={onSubmitName}>
+                <form onSubmit={onSubmitName} id="experience">
 
                     <div className="form-item">
                         <label htmlFor="company">Company Name: </label>

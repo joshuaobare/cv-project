@@ -111,6 +111,7 @@ class App extends Component {
 
   onSubmitName = (e) => {
     e.preventDefault()
+    
     this.setState({
       
       info: this.state.info.concat(this.state.name,this.state.email,this.state.number),      
@@ -129,6 +130,13 @@ class App extends Component {
       workStart:{text: "",id : uniqid(),title:"Start Date"},
       workEnd : {text: "",id : uniqid(),title:"End Date"}
     })
+
+    e.target.style.display = "none"
+  }
+
+  editFields = (e) => {
+    document.querySelector(`#${e.target.dataset.form}`).style.display = "block"
+    
   }
 
 
@@ -143,6 +151,7 @@ class App extends Component {
         <div className='section'>
           
           <General onChange={this.handleChange} nameValue={name.text} emailValue={email.text} numberValue={number.text} onSubmitName={this.onSubmitName}/>
+                  <div id='general-section'>
                   {
                       info.map((data) => {
                           if (data.text === "") {
@@ -152,14 +161,17 @@ class App extends Component {
                           
                       })
                   }
+                  </div>
+                  
 
-          <div><button>Edit</button></div>
+          <div><button onClick={this.editFields} data-form="info">Edit</button></div>
         
         </div>
 
         <div className='section'>
           
           <Education onChange={this.handleChange} schoolName={school.text} degreeName={degree.text} schoolStart={schoolStart.text} schoolEnd={schoolEnd.text} onSubmitName={this.onSubmitName} />
+            <div id="education-section">
             {
                 education.map((data) => {
                     if(data.text === "") {
@@ -169,23 +181,29 @@ class App extends Component {
                     } 
                 })
             }
-             <div><button>Edit</button></div>
+            </div>
+            
+             <div><button onClick={this.editFields} data-form="education">Edit</button></div>
         </div>
 
         <div className='section'>
           
           <Experience onChange={this.handleChange} company={company.text} position={position.text} roles={roles.text} workStart={workStart.text} workEnd={workEnd.text} onSubmitName={this.onSubmitName}/>
-          {
-              experience.map((data) => {
-                  if(data.text === "") {
-                      return null
-                  } else {
-                      return <div className="experience" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
-                  }                                     
-                  
-              })
-          }
-           <div><button>Edit</button></div>
+          <div id='experience-section'>
+            {
+                experience.map((data) => {
+                    if(data.text === "") {
+                        return null
+                    } else {
+                        return <div className="experience" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
+                    }                                     
+                    
+                })
+            }
+          </div>
+          
+          
+           <div><button onClick={this.editFields} data-form="experience">Edit</button></div>
         </div>
 
       </div>

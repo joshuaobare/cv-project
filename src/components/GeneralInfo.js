@@ -10,7 +10,7 @@ class General extends Component {
         return (
             <div>
                 <h2 className='component-heading'>General Info</h2>
-                <form onSubmit={onSubmitName} >
+                <form onSubmit={onSubmitName} id="info">
 
                     <div className="form-item">
                         <label htmlFor="name">Name: </label>
