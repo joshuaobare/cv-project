@@ -245,7 +245,7 @@ class App extends Component {
           
            <div><button onClick={this.editExperience} data-form="experience" data-section="experience-section">Edit</button></div>
         </div>
-
+      <footer>&copy; 2022 CV PROJECT</footer>
       </div>
     );
   }
