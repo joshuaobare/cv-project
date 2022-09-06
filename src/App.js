@@ -33,11 +33,11 @@ class App extends Component {
       
       schoolStart:{text: "",
       id:uniqid(),
-      title:"Start Date"},
+      title:"Admission Date"},
       
       schoolEnd : {text: "",
       id:uniqid(),
-      title:"End Date"},
+      title:"Graduation Date"},
       
       company : {text: "",
       id:uniqid(),
@@ -122,8 +122,8 @@ class App extends Component {
       number : {text: "",id : uniqid(),title:"Number"},     
       school:{text: "",id : uniqid(),title:"School"},
       degree:{text: "",id : uniqid(),title:"Degree"},
-      schoolStart:{text: "",id : uniqid(),title:"Start Date"},
-      schoolEnd : {text: "",id : uniqid(),title:"End Date"},
+      schoolStart:{text: "",id : uniqid(),title:"Admission Date"},
+      schoolEnd : {text: "",id : uniqid(),title:"Graduation Date"},
       company : {text: "",id : uniqid(),title:"Company"},     
       position:{text: "",id : uniqid(),title:"Position"},
       roles:{text: "",id : uniqid(),title:"Roles"},
@@ -134,10 +134,45 @@ class App extends Component {
     e.target.style.display = "none"
   }
 
-  editFields = (e) => {
-    document.querySelector(`#${e.target.dataset.form}`).style.display = "block"
-    
+  editInfo = (e) => {
+        
+
+    this.setState({
+      name:{text: document.querySelector("#Name").textContent,id : uniqid(),title:"Name"},
+      email:{text: document.querySelector("#Email").textContent,id : uniqid(),title:"Email"},
+      number : {text: document.querySelector("#Number").textContent,id : uniqid(),title:"Number"},     
+      
+    })
+    document.querySelector(`#${e.target.dataset.form}`).style.display = "flex"
+    document.querySelector(`#${e.target.dataset.section}`).innerHTML = ""
   }
+
+  editEducation = (e) => {
+    this.setState({
+           
+      school:{text: document.querySelector("#School").textContent,id : uniqid(),title:"School"},
+      degree:{text: document.querySelector("#Degree").textContent,id : uniqid(),title:"Degree"},
+      schoolStart:{text: document.querySelector("#Admission-Date").textContent,id : uniqid(),title:"Admission Date"},
+      schoolEnd : {text: document.querySelector("#Graduation-Date").textContent,id : uniqid(),title:"Graduation Date"}
+    })
+
+    document.querySelector(`#${e.target.dataset.form}`).style.display = "flex"
+    document.querySelector(`#${e.target.dataset.section}`).innerHTML = ""
+  }
+
+  editExperience= (e) => {
+    this.setState({
+      company : {text: document.querySelector("#Company").textContent,id : uniqid(),title:"Company"},   
+      position:{text: document.querySelector("#Position").textContent,id : uniqid(),title:"Position"},
+      roles:{text: document.querySelector("#Roles").textContent,id : uniqid(),title:"Roles"},
+      workStart:{text: document.querySelector("#Start-Date").textContent,id : uniqid(),title:"Start Date"},
+      workEnd : {text: document.querySelector("#End-Date").textContent,id : uniqid(),title:"End Date"}
+
+    })
+    document.querySelector(`#${e.target.dataset.form}`).style.display = "flex"
+    document.querySelector(`#${e.target.dataset.section}`).innerHTML = ""
+  }
+
 
 
 
@@ -157,14 +192,14 @@ class App extends Component {
                           if (data.text === "") {
                               return null
                           }else {
-                            return <div className="details" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>}
+                            return <div className="details" key={data.id}><p>{data.title}:</p><p id={data.title}> {data.text}</p></div>}
                           
                       })
                   }
                   </div>
                   
 
-          <div><button onClick={this.editFields} data-form="info">Edit</button></div>
+          <div><button onClick={this.editInfo} data-form="info" data-section="general-section">Edit</button></div>
         
         </div>
 
@@ -176,14 +211,17 @@ class App extends Component {
                 education.map((data) => {
                     if(data.text === "") {
                         return null
-                    } else {
-                        return <div className="education" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
+                    } else if ((data.title === "Admission Date") || (data.title === "Graduation Date")){
+                      return <div className="education" key={data.id}><p>{data.title}:</p><p id={data.title.split(" ").join("-")}> {data.text}</p></div>
+                    }
+                     else {
+                        return <div className="education" key={data.id}><p>{data.title}:</p><p id={data.title}> {data.text}</p></div>
                     } 
                 })
             }
             </div>
             
-             <div><button onClick={this.editFields} data-form="education">Edit</button></div>
+             <div><button onClick={this.editEducation} data-form="education" data-section = "education-section">Edit</button></div>
         </div>
 
         <div className='section'>
@@ -194,8 +232,10 @@ class App extends Component {
                 experience.map((data) => {
                     if(data.text === "") {
                         return null
+                    } else if ((data.title === "Start Date") || (data.title === "End Date")){
+                      return <div className="education" key={data.id}><p>{data.title}:</p><p id={data.title.split(" ").join("-")}> {data.text}</p></div>
                     } else {
-                        return <div className="experience" key={data.id}><p>{data.title}:</p><p> {data.text}</p></div>
+                        return <div className="experience" key={data.id}><p>{data.title}:</p><p id={data.title}> {data.text}</p></div>
                     }                                     
                     
                 })
@@ -203,7 +243,7 @@ class App extends Component {
           </div>
           
           
-           <div><button onClick={this.editFields} data-form="experience">Edit</button></div>
+           <div><button onClick={this.editExperience} data-form="experience" data-section="experience-section">Edit</button></div>
         </div>
 
       </div>
