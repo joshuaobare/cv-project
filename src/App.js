@@ -183,7 +183,7 @@ class App extends Component {
       <div className="App">
         <h1>CV PROJECT</h1>
         
-        <div className='section'>
+        <div className='section top'>
           
           <General onChange={this.handleChange} nameValue={name.text} emailValue={email.text} numberValue={number.text} onSubmitName={this.onSubmitName}/>
                   <div id='general-section'>
@@ -192,14 +192,14 @@ class App extends Component {
                           if (data.text === "") {
                               return null
                           }else {
-                            return <div className="details" key={data.id}><p>{data.title}:</p><p id={data.title}> {data.text}</p></div>}
+                            return <div className="details" key={data.id}><p id={data.title}> {data.text}</p></div>}
                           
                       })
                   }
                   </div>
                   
 
-          <div><button onClick={this.editInfo} data-form="info" data-section="general-section">Edit</button></div>
+          <div><button onClick={this.editInfo} className="editbtn" data-form="info" data-section="general-section"></button></div>
         
         </div>
 
@@ -212,19 +212,19 @@ class App extends Component {
                     if(data.text === "") {
                         return null
                     } else if ((data.title === "Admission Date") || (data.title === "Graduation Date")){
-                      return <div className="education" key={data.id}><p>{data.title}:</p><p id={data.title.split(" ").join("-")}> {data.text}</p></div>
+                      return <div className="education" key={data.id}><p class="titles">{data.title}:</p><p id={data.title.split(" ").join("-")}> {data.text}</p></div>
                     }
                      else {
-                        return <div className="education" key={data.id}><p>{data.title}:</p><p id={data.title}> {data.text}</p></div>
+                        return <div className="education" key={data.id}><p class="titles">{data.title}:</p><p id={data.title}> {data.text}</p></div>
                     } 
                 })
             }
             </div>
             
-             <div><button onClick={this.editEducation} data-form="education" data-section = "education-section">Edit</button></div>
+             <div><button onClick={this.editEducation} className="editbtn" data-form="education" data-section = "education-section"></button></div>
         </div>
 
-        <div className='section'>
+        <div className='section bottom'>
           
           <Experience onChange={this.handleChange} company={company.text} position={position.text} roles={roles.text} workStart={workStart.text} workEnd={workEnd.text} onSubmitName={this.onSubmitName}/>
           <div id='experience-section'>
@@ -233,9 +233,9 @@ class App extends Component {
                     if(data.text === "") {
                         return null
                     } else if ((data.title === "Start Date") || (data.title === "End Date")){
-                      return <div className="education" key={data.id}><p>{data.title}:</p><p id={data.title.split(" ").join("-")}> {data.text}</p></div>
+                      return <div className="education" key={data.id}><p class="titles">{data.title}:</p><p id={data.title.split(" ").join("-")}> {data.text}</p></div>
                     } else {
-                        return <div className="experience" key={data.id}><p>{data.title}:</p><p id={data.title}> {data.text}</p></div>
+                        return <div className="experience" key={data.id}><p class="titles">{data.title}:</p><p id={data.title}> {data.text}</p></div>
                     }                                     
                     
                 })
@@ -243,9 +243,9 @@ class App extends Component {
           </div>
           
           
-           <div><button onClick={this.editExperience} data-form="experience" data-section="experience-section">Edit</button></div>
+           <div><button onClick={this.editExperience} className="editbtn" data-form="experience" data-section="experience-section"></button></div>
         </div>
-      <footer>&copy; 2022 CV PROJECT</footer>
+      
       </div>
     );
   }

@@ -22,7 +22,8 @@ class Experience extends Component {
                     </div>
                     <div className="form-item">
                         <label htmlFor="roles">Roles: </label>
-                        <input onChange={onChange} value={roles} type="text" id="roles"/>
+                        
+                        <textarea onChange={onChange} value={roles} type="text" id="roles" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-item">
                         <label htmlFor="workStart">Start date: </label>
