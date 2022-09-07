@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/cv-project/static/css/main.b01bc544.css",
+    "main.js": "/cv-project/static/js/main.8bda4d4c.js",
+    "static/media/BaufraBold.ttf": "/cv-project/static/media/BaufraBold.49faeea61e2ae8e932ef.ttf",
+    "index.html": "/cv-project/index.html",
+    "main.b01bc544.css.map": "/cv-project/static/css/main.b01bc544.css.map",
+    "main.8bda4d4c.js.map": "/cv-project/static/js/main.8bda4d4c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b01bc544.css",
+    "static/js/main.8bda4d4c.js"
+  ]
+}
